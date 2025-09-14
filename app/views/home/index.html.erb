@@ -20,6 +20,7 @@
 <%# display all posts %>
 <% @posts.each do |post|%>
 <div class="mx-auto my-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= post.user.username %> <%= t('user_add_new_post_part2') %>.</p>
     <% if post.image.attached? %>
         <a href="#">
         <img class="rounded-t-lg" src="<%= url_for(post.image) %>" alt="" />

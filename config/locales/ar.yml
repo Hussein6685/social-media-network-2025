@@ -138,3 +138,5 @@ ar:
   create: "إنشاء"
   Leave a comment...: "اكتب تعليقك هنا..."
   post_created_successfully.: "تم إنشاء المنشور بنجاح."
+  user_add_new_post_part1: "المستخدم"
+  user_add_new_post_part2: "أضاف منشورًا جديدًا."
