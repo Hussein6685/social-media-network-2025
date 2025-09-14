@@ -87,14 +87,18 @@
   </div>
   </div>
 </nav>
-    <hr>
-    <% if user_signed_in? %>
-      مرحبًا
-    <% else %>
-      مرحبًا، زائر!
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="m-4">
+      <hr>
+      <% if user_signed_in? %>
+        مرحبًا
+      <% else %>
+        مرحبًا، زائر!
+      <% end %>
+      <div class="my-5">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    </div>
     <div class="container mx-auto mt-4">
       <%= yield %>
     </div>
