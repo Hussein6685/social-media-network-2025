@@ -7,21 +7,8 @@ class PostController < ApplicationController
       redirect_to request.referrer, notice: "تم إنشاء المنشور بنجاح.", allow_other_host: true
     end
   end
+  def like
+    Like.create(user_id: current_user.id, post_id: params[:post_id])
+    redirect_to request.referrer, notice: "تم الإعجاب بنجاح.", allow_other_host: true
+  end
 end
-#   def create
-#     # Logic for creating a new post
-#     @post = Post.new(post_params)
-#     if @post.save
-#       redirect_to root_path, notice: 'Post was successfully created.'
-#     else
-#       render :new
-#     end
-#   end
-
-#   private
-
-#   def post_params
-#     params.require(:post).permit(:content, :image)
-#   end
-# end
-
