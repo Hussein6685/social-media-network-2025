@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   root "home#index"
   post 'post/create'
   post 'post/like'
+  post 'post/comment'
 end
