@@ -1,0 +1,28 @@
+
+<div class="container mx-auto p-4">
+    <h1>الملف الشخصي للمستخدم</h1>
+    <hr>
+    <p>معلومات المستخدم:</p>
+    <br>
+    <p>البريد الإلكتروني: <%= @user.email %></p>
+    <br>
+    <br>
+    <p>اسم المستخدم: <%= @user.username %></p>
+    <br>
+    <p>معرف المستخدم: <%= @user.id %></p>
+    <br>
+</div>
+<br>
+<% if @user.posts.any? %>
+    <h2>المشاركات:</h2>
+    <ul>
+        <% @user.posts.reverse.each do |post| %>
+            <div class="mx-auto my-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <%= render 'shared/post_card', post: post, type: 'post' %>
+            </div>
+        <% end %>
+    </ul>
+<% else %>
+    <p>لا توجد مشاركات لعرضها.</p>
+<% end %>
+

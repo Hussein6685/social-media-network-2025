@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post 'post/create'
   post 'post/like'
   post 'post/comment'
+  get 'user/index'
+  get 'user/profile'
 end
