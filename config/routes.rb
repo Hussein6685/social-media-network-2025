@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   post 'community/create'
   post 'community/join'
   post 'community/leave'
+  get 'community/:id', to: 'community#community', as: 'community_show'
 end

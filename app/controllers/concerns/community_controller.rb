@@ -4,6 +4,9 @@ class CommunityController < ApplicationController
     @communities = Community.all().reverse
   end
 
+  def community
+    @community = Community.find(params[:id])
+  end
   def create
     community = Community.create(name: params[:name])
     if community.save

@@ -17,7 +17,7 @@
                     <% if community.image.attached? %>
                         <img src="<%= url_for(community.image) %>" class="rounded-lg mb-4" />
                     <% end %>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#"><%= community.name %></a></h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#"><a href="/community/<%= community.id %>"><%= community.name %></a></h5>
                     <% if @user.communities.select {|c| c.id == community.id }.count == 0 %>
                             <form action="/community/join" method="post">
                                 <input type="hidden" name="community_id" value="<%= community.id %>">
