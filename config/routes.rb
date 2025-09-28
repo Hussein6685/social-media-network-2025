@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   post 'post/comment'
   get 'user/index'
   get 'user/profile'
+  post 'user/avatar'
 end

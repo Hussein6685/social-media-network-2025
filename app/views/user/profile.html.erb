@@ -3,7 +3,15 @@
     <h1>الملف الشخصي للمستخدم</h1>
     <hr>
     <p>معلومات المستخدم:</p>
+    <% if @user.avatar.attached? %>
+        <img src="<%= url_for(@user.avatar) %>" alt="Avatar" class="w-24 h-24 rounded-full object-cover" />
+    <% end %>
     <br>
+    <form action="/user/avatar" method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="flex items-center space-x-4">
+        <input type="file" name="avatar" id="avatar" class="" />
+        <%# <button type="submit" onclick="document.getElementById('avatar').click();" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">تغيير الصورة</button> %>
+        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"> <%= t('change_profile_avatar')%> </button>
+    </form>
     <p>البريد الإلكتروني: <%= @user.email %></p>
     <br>
     <br>
