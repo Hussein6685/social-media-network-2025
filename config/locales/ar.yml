@@ -177,4 +177,7 @@ ar:
   create_community: "إنشاء مجتمع"
   create_new_community: "إنشاء مجتمع جديد"
   community_created_successfully.: "تم إنشاء المجتمع بنجاح."
-
+  join_community: "انضم إلى المجتمع"
+  leave_community: "غادر المجتمع"
+  joined_community_successfully: "تم الانضمام إلى المجتمع بنجاح."
+  left_community_successfully: "تم مغادرة المجتمع بنجاح."

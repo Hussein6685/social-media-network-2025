@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   post 'post/repost'
   get 'community/index'
   post 'community/create'
+  post 'community/join'
+  post 'community/leave'
 end
