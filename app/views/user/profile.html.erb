@@ -6,21 +6,24 @@
     <% if @user.avatar.attached? %>
         <img src="<%= url_for(@user.avatar) %>" alt="Avatar" class="w-24 h-24 rounded-full object-cover" />
     <% end %>
+    <p>اسم المستخدم: <%= @user.username %></p>
     <br>
-    <form action="/user/avatar" method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="flex items-center space-x-4">
-        <input type="file" name="avatar" id="avatar" class="" />
-        <%# <button type="submit" onclick="document.getElementById('avatar').click();" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">تغيير الصورة</button> %>
-        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"> <%= t('change_profile_avatar')%> </button>
-    </form>
+    <% if @user.id == current_user.id %>
+        <form class="mb-2 inline-block" action="/user/username" method="post">
+            <input type="text" name="username" placeholder="اسم المستخدم الجديد" class="border border-gray-300 rounded px-2 py-1">
+            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"> <%= t('change_username') %> </button>
+        </form>
+        <br>
+        <form action="/user/avatar" method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="flex items-center space-x-4">
+            <input type="file" name="avatar" id="avatar" class="" />
+            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"> <%= t('change_profile_avatar')%> </button>
+        </form>
+        <p>البريد الإلكتروني: <%= @user.email %></p>
+        <p>معرف المستخدم: <%= @user.id %></p>
+    <% end %>
     <a href="/user/index">
         <button class="mt-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"> <%= t('view_all_users') %> </button>
     </a>
-    <p>البريد الإلكتروني: <%= @user.email %></p>
-    <br>
-    <br>
-    <p>اسم المستخدم: <%= @user.username %></p>
-    <br>
-    <p>معرف المستخدم: <%= @user.id %></p>
     <br>
 </div>
 <br>

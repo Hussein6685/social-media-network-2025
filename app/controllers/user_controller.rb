@@ -4,7 +4,7 @@ class UserController < ApplicationController
   end
 
   def profile
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def avatar
@@ -22,4 +22,11 @@ class UserController < ApplicationController
     Relationship.find_by(follower_id: current_user.id, followed_id: params[:followed_id]).destroy
     redirect_to request.referrer, notice: 'ألغيت متابعة المستخدم بنجاح.', allow_other_host: true
   end
+
+  def username
+    user = User.find(current_user.id)
+    user.update(username: params[:username])
+    redirect_to request.referrer, notice: 'تم تحديث اسم المستخدم بنجاح.', allow_other_host: true
+  end
+
 end

@@ -2,7 +2,7 @@
     <% if post.user.avatar.attached? %>
         <img class="w-10 h-10 rounded-full" src="<%= url_for(post.user.avatar) %>" alt="User avatar" />
     <% end %>
-    <a><%= post.user.username %></a>
+    <a href="<%= user_profile_path(post.user.id) %>"><%= post.user.username %></a>
 </div>
 <% if post.image.attached? %>
     <a href="#">
@@ -43,7 +43,7 @@
             <% if comment.user.avatar.attached? %>
                 <img class="w-10 h-10 rounded-full" src="<%= url_for(comment.user.avatar) %>" alt="User avatar" />
             <% end %>
-            <p class="font-normal text-gray-700 dark:text-gray-400"><%= comment.user.username %>: <br> <%= comment.comment_text %></p>
+            <p class="font-normal text-gray-700 dark:text-gray-400"><a href="<%= user_profile_path(comment.user.id) %>"><%= comment.user.username %></a>: <br> <%= comment.comment_text %></p>
         </div>
     <% end %>
     </div>

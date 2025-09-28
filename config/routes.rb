@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   post 'post/like'
   post 'post/comment'
   get 'user/index'
-  get 'user/profile'
+  get 'user/:id', to: 'user#profile', as: 'user_profile'
   post 'user/avatar'
   post 'user/follow'
   post 'user/unfollow'
+  post 'user/username'
 end

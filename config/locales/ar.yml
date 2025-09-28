@@ -164,3 +164,5 @@ ar:
   unfollow: "إلغاء المتابعة"
   user_following: "المستخدمون الذين تتابعهم"
   user_followers: "المستخدمون المتابعون لك"
+  change_username: "تغيير اسم المستخدم"
+  username_updated: "تم تحديث اسم المستخدم بنجاح."
