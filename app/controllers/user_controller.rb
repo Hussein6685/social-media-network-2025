@@ -4,7 +4,12 @@ class UserController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
+    posts = user.posts
+    reposts = user.reposts
+    all_activities = posts + reposts
+    @feeds = all_activities.sort_by(&:created_at).reverse
+    @user = user
   end
 
   def avatar

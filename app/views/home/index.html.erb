@@ -21,11 +21,14 @@
 <% @feeds.each do |feed|%>
     <div class="mx-auto my-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <% if feed.is_a?(Post) %>
-        <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_add_new_post_part2') %>.</p>
-        <%= render 'shared/post_card', post: feed, type: 'post' %>
-      <% else %>
-      <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_add_new_comment') %>.</p>
-        <%= render 'shared/post_card', post: feed.post, type: 'comment' %>
+          <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_add_new_post_part2') %>.</p>
+          <%= render 'shared/post_card', post: feed, type: 'post' %>
+        <% elsif feed.is_a?(Comment) %>
+        <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_add_new_comment') %>.</p>
+          <%= render 'shared/post_card', post: feed.post, type: 'comment' %>
+        <% elsif feed.is_a?(Repost) %>
+        <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_reposted') %>.</p>
+          <%= render 'shared/post_card', post: feed.post, type: 'repost' %>
       <% end %>
     </div>
 <% end %>

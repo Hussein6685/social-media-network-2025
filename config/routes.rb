@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post 'user/follow'
   post 'user/unfollow'
   post 'user/username'
+  post 'post/repost'
 end

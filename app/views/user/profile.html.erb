@@ -30,9 +30,14 @@
 <% if @user.posts.any? %>
     <h2>المشاركات:</h2>
     <ul>
-        <% @user.posts.reverse.each do |post| %>
+        <% @feeds.each do |feed| %>
             <div class="mx-auto my-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <%= render 'shared/post_card', post: post, type: 'post' %>
+                <% if feed.is_a?(Post) %>
+                    <%= render 'shared/post_card', post: feed, type: 'post' %>
+                <% elsif feed.is_a?(Repost) %>
+                    <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('user_add_new_post_part1') %> <%= feed.user.username %> <%= t('user_reposted') %>.</p>
+                    <%= render 'shared/post_card', post: feed.post, type: 'repost' %>
+                <% end %>
             </div>
         <% end %>
     </ul>

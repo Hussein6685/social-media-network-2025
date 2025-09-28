@@ -166,3 +166,6 @@ ar:
   user_followers: "المستخدمون المتابعون لك"
   change_username: "تغيير اسم المستخدم"
   username_updated: "تم تحديث اسم المستخدم بنجاح."
+  user_reposted: "أعاد نشر المنشور"
+  user_reposted_post: "أعاد نشر منشور"
+  repost: "إعادة نشر"

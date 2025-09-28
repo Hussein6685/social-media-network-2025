@@ -15,4 +15,8 @@ class PostController < ApplicationController
     Comment.create(user_id: current_user.id, post_id: params[:post_id], comment_text: params[:comment_text])
     redirect_to request.referrer, notice: "تم إضافة التعليق بنجاح.", allow_other_host: true
   end
+  def repost
+    Repost.create(user_id: current_user.id, post_id: params[:post_id])
+    redirect_to request.referrer, notice: "تم إعادة نشر المنشور بنجاح.", allow_other_host: true
+  end
 end
