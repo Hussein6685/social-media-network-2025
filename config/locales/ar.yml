@@ -169,3 +169,12 @@ ar:
   user_reposted: "أعاد نشر المنشور"
   user_reposted_post: "أعاد نشر منشور"
   repost: "إعادة نشر"
+  view_communities: "عرض المجتمعات"
+  communities: "المجتمعات"
+  community_name: "اسم المجتمع"
+  create_community: "إنشاء مجتمع"
+  community_created_successfully: "تم إنشاء المجتمع بنجاح."
+  create_community: "إنشاء مجتمع"
+  create_new_community: "إنشاء مجتمع جديد"
+  community_created_successfully.: "تم إنشاء المجتمع بنجاح."
+

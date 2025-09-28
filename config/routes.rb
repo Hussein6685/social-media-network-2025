@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   post 'user/unfollow'
   post 'user/username'
   post 'post/repost'
+  get 'community/index'
+  post 'community/create'
 end
