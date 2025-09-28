@@ -1,6 +1,6 @@
 class PostController < ApplicationController
   def create
-    post = Post.create(user_id: current_user.id, post_text: params[:post_text], has_image: false)
+    post = Post.create(user_id: current_user.id, post_text: params[:post_text], has_image: false, community_id: params[:community_id])
     if post.save
       post.image.attach(params[:image]) if params[:image].present?
       post.update(has_image: true) if params[:image].present?

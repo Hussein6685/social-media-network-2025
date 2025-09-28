@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_14_210230) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_28_211226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -83,6 +83,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_14_210230) do
     t.boolean "has_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "community_id"
+    t.index ["community_id"], name: "index_posts_on_community_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -123,6 +125,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_14_210230) do
   add_foreign_key "community_users", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "posts", "communities"
   add_foreign_key "posts", "users"
   add_foreign_key "reposts", "posts"
   add_foreign_key "reposts", "users"
