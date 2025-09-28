@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one_attached :avatar
+  has_many :relationships, foreign_key: :followed_id
 end

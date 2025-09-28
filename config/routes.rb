@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'user/index'
   get 'user/profile'
   post 'user/avatar'
+  post 'user/follow'
+  post 'user/unfollow'
 end
