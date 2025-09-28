@@ -2,11 +2,13 @@ class HomeController < ApplicationController
   def index
     @feeds = []
     if current_user
-      posts = Post.where.not(user_id: current_user.id).order(created_at: :desc)
-      comments = Comment.where.not(user_id: current_user.id).order(created_at: :desc)
-      reposts = Repost.where.not(user_id: current_user.id).order(created_at: :desc)
-      all_add_activities = posts + comments + reposts
-      @feeds = all_add_activities.sort_by(&:created_at).reverse
+      user = User.find(current_user.id)
+      user_following = user.following.map { |f| f.followed_id }
+      posts = Post.where(user_id: user_following)
+      comments = Comment.where(user_id: user_following)
+      reposts = Repost.where(user_id: user_following)
+      all_activities = posts + comments + reposts
+      @feeds = all_activities.sort_by(&:created_at).reverse
     end
   end
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.

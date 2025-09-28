@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :relationships, foreign_key: :followed_id
   has_many :reposts
+  has_many :following, class_name: 'Relationship', foreign_key: :follower_id
+  has_many :followers, class_name: 'Relationship', foreign_key: :followed_id
 end
