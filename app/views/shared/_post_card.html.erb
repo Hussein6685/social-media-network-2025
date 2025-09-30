@@ -2,7 +2,22 @@
     <% if post.user.avatar.attached? %>
         <img class="w-10 h-10 rounded-full" src="<%= url_for(post.user.avatar) %>" alt="User avatar" />
     <% end %>
-    <a href="<%= user_profile_path(post.user.id) %>"><%= post.user.username %></a>
+    <a class="font-medium text-gray-900 dark:text-white inline-block align-top"  href="<%= user_profile_path(post.user.id) %>"><%= post.user.username %></a>
+    <a class="font-medium text-gray-900 dark:text-white">
+        <% if (Time.now() - post.created_at).ceil < 60 %>
+            <small class="text-gray-500"> <%= (Time.now() - post.created_at).ceil %> <%= t('seconds_ago') %> </small>
+        <% elsif ((Time.now() - post.created_at).ceil / 60) < 60 %>
+            <small class="text-gray-500"> <%= ((Time.now() - post.created_at).ceil / 60) %> <%= t('minutes_ago') %> </small>
+        <% elsif ((Time.now() - post.created_at).ceil / 3600) < 24 %>
+            <small class="text-gray-500"> <%= ((Time.now() - post.created_at).ceil / 3600) %> <%= t('hours_ago') %> </small>
+        <% elsif ((Time.now() - post.created_at).ceil / 86400) < 30 %>
+            <small class="text-gray-500"> <%= ((Time.now() - post.created_at).ceil / 86400) %> <%= t('days_ago') %> </small>
+        <% elsif ((Time.now() - post.created_at).ceil / 2592000) > 12 %>
+            <small class="text-gray-500"> <%= ((Time.now() - post.created_at).ceil / 2592000) %> <%= t('months_ago') %> </small>
+        <% else %>
+            <small class="text-gray-500"> <%= ((Time.now() - post.created_at).ceil / 31536000) %> <%= t('years_ago') %> </small>
+        <% end %>
+    </a>
 </div>
 <% if post.image.attached? %>
     <a href="#">
