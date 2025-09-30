@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :reposts
+  belongs_to :community
 end
